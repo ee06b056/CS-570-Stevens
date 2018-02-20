@@ -1,0 +1,18 @@
+{
+  "name": "assignment_4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node Assignment_4.js"
+  },
+  "keywords": [],
+  "author": "Bo Li",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^8.0.52",
+    "@types/readline-sync": "^1.4.2",
+    "readline-sync": "^1.4.7"
+  },
+  "dependencies": {}
+}

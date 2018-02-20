@@ -1,0 +1,15 @@
+{
+  "name": "assignment_2",
+  "version": "1.0.0",
+  "description": "Assignment 2 of CS570",
+  "main": "Assignment_2.js",
+  "dependencies": {
+    "prompt-sync": "^4.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node Assignment_2.js"
+  },
+  "author": "Bo Li",
+  "license": "ISC"
+}

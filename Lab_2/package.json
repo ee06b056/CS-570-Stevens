@@ -1,0 +1,17 @@
+{
+  "name": "Lab_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Lab_2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Lab_2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^9.4.1",
+    "prompt": "^1.0.0"
+  }
+}
