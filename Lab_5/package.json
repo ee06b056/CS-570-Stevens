@@ -1,0 +1,15 @@
+{
+  "name": "lab_5",
+  "version": "1.0.0",
+  "description": "lab5 of CS570",
+  "main": "Lab_5.js",
+  "dependencies": {
+    "prompt-sync": "^4.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node Lab_5.js"
+  },
+  "author": "Bo Li",
+  "license": "ISC"
+}

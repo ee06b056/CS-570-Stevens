@@ -1,0 +1,19 @@
+{
+  "name": "assignment_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node assignment_1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^8.5.2",
+    "@types/readline-sync": "^1.4.2",
+    "readline-sync": "^1.4.7"
+  },
+  "dependencies": {}
+}

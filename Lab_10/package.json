@@ -1,0 +1,16 @@
+{
+  "name": "lab_10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node Lab_10.js",
+    "start": "node Lab_10.js"
+  },
+  "keywords": [],
+  "author": "Bo Li",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^8.0.53"
+  }
+}
