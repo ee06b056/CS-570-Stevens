@@ -3,11 +3,11 @@
 //define the interface 
 interface Vector<T>  {
 	length: number;
-	get (index: number);
-	set (index: number, value: T);
-	push (value: T);
+	get (index: number): T;
+	set (index: number, value: T): void;
+	push (value: T): void;
 	pop (): T;
-	insert(index: number, value: T);
+	insert(index: number, value: T): void;
 }
 
 //implement the interface with class FakeVector
