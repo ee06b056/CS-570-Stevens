@@ -63,8 +63,9 @@ function caculator(operand_1, operand_2, operator) {
     }
 }
 function postfixConverser(infix) {
-    infix = infix.replace(/\s+/g, '').replace(/POW/g, '^').replace(/[)(/*\+-^]/g, ' $& ').replace(/\s+/g, ' ').trim();
+    infix = infix.replace(/\s+/g, '').replace(/POW/g, '^').replace(/[)^(/*\+-]/g, ' $& ').replace(/\s+/g, ' ').trim();
     var infix_arr = infix.split(' ');
+    console.log(infix_arr);
     var infix_que = new Queue();
     var operator_stack = new Stack();
     var postfix_que = new Queue();
@@ -114,7 +115,12 @@ function postfixCaculator(postfix_que) {
             temp_stack.push(temp_result);
         }
     }
-    return Number(temp_stack.pop());
+    var result = Number(temp_stack.pop());
+    console.log('result: ' + result);
+    if (isNaN(result) || !isFinite(result)) {
+        throw 'NaN or divided by 0 exceptions';
+    }
+    return result;
 }
 function main() {
     while (true) {
@@ -130,7 +136,7 @@ function main() {
             console.log('The answer of this postfix expression is: ' + result);
         }
         catch (err) {
-            console.log('Please input legal expression');
+            console.log('Please input legal expression: ' + err);
         }
     }
 }

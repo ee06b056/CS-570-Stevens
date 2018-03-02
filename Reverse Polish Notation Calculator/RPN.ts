@@ -69,8 +69,9 @@ function caculator (operand_1: any, operand_2: any, operator: string) {
 }
 
 function postfixConverser (infix: string): Queue {
-    infix = infix.replace(/\s+/g, '').replace(/POW/g, '^').replace(/[)(/*\+-^]/g, ' $& ').replace(/\s+/g, ' ').trim();
+    infix = infix.replace(/\s+/g, '').replace(/POW/g, '^').replace(/[)^(/*\+-]/g, ' $& ').replace(/\s+/g, ' ').trim();
     let infix_arr = infix.split(' ');
+    console.log(infix_arr);
     let infix_que = new Queue();
     let operator_stack = new Stack();
     let postfix_que = new Queue();
@@ -120,8 +121,12 @@ function postfixCaculator (postfix_que: Queue) {
             temp_stack.push(temp_result);
         }
     }
-
-    return Number(temp_stack.pop());
+    let result = Number(temp_stack.pop());
+    console.log('result: '+ result);
+    if (isNaN(result) || !isFinite(result)) {
+        throw 'NaN or divided by 0 exceptions';
+    }
+    return result;
 }
 
 function main () {
@@ -137,7 +142,7 @@ function main () {
             console.log('The postfix expression of your input is: ' + postfix_exp);
             console.log('The answer of this postfix expression is: ' + result);
         } catch (err) {
-            console.log('Please input legal expression');
+            console.log('Please input legal expression: ' + err);
         }
     }
 }
