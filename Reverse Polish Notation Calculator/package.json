@@ -1,0 +1,11 @@
+{
+  "name": "RPN.js",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@types/prompt-sync": "^4.1.0",
+    "prompt-sync": "^4.1.5"
+  },
+  "scripts": {
+    "start": "node RPN.js"
+  }
+}
