@@ -43,11 +43,13 @@ function isNumber(input) {
 }
 function getPriority(input) {
     switch (input) {
+        case undefined: return -1;
         case '(': return 0;
         case '+': return 1;
         case '-': return 1;
         case '*': return 2;
         case '/': return 2;
+        case '%': return 2;
         case '^': return 3;
         default: throw 'Incorrect operator';
     }
@@ -58,12 +60,13 @@ function caculator(operand_1, operand_2, operator) {
         case '-': return Number(operand_2) - Number(operand_1);
         case '*': return Number(operand_2) * Number(operand_1);
         case '/': return Number(operand_2) / Number(operand_1);
+        case '%': return Number(operand_2) % Number(operand_1);
         case '^': return Math.pow(Number(operand_2), Number(operand_1));
         default: throw 'caculator err';
     }
 }
 function postfixConverser(infix) {
-    infix = infix.replace(/\s+/g, '').replace(/POW/g, '^').replace(/[)^(/*\+-]/g, ' $& ').replace(/\s+/g, ' ').trim();
+    infix = infix.replace(/\s+/g, '').replace(/POW/g, '^').replace(/[)^%(/*\+-]/g, ' $& ').replace(/\s+/g, ' ').trim();
     var infix_arr = infix.split(' ');
     console.log(infix_arr);
     var infix_que = new Queue();
@@ -75,30 +78,36 @@ function postfixConverser(infix) {
     while (!infix_que.isEmpty()) {
         var i = infix_que.deQueue();
         if (isNumber(i)) {
+            console.log('is Number');
             postfix_que.enQueue(i);
         }
         else if (operator_stack.isEmpty() || operator_stack.peek() == '(' || i == '(') {
             operator_stack.push(i);
+            console.log('2');
         }
         else if (i == ')') {
             while (operator_stack.peek() != '(') {
                 postfix_que.enQueue(operator_stack.pop());
             }
+            console.log('3');
             operator_stack.pop();
         }
         else if (getPriority(i) > getPriority(operator_stack.peek())) {
             operator_stack.push(i);
+            console.log('4');
         }
         else if (getPriority(i) <= getPriority(operator_stack.peek())) {
             do {
                 postfix_que.enQueue(operator_stack.pop());
             } while (getPriority(i) <= getPriority(operator_stack.peek()));
+            console.log('5');
             operator_stack.push(i);
         }
     }
     while (!operator_stack.isEmpty()) {
         postfix_que.enQueue(operator_stack.pop());
     }
+    console.log(postfix_que);
     return postfix_que;
 }
 function postfixCaculator(postfix_que) {
