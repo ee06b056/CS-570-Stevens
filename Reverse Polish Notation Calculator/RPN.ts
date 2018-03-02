@@ -123,7 +123,6 @@ function postfixCaculator (postfix_que: Queue) {
         }
     }
     let result = Number(temp_stack.pop());
-    console.log('result: '+ result);
     if (isNaN(result) || !isFinite(result)) {
         throw 'NaN or divided by 0 exceptions';
     }
