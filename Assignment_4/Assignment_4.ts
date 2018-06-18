@@ -36,6 +36,7 @@ class TrieNode {
     constructor (value: string|null, isWordEnd: boolean) {
         this.value = value;
         this.isWordEnd = isWordEnd;
+        this.primaryIndex = 0;
     }
 }
 //trie class
@@ -44,6 +45,7 @@ class Trie {
     public freqTable: any[][];
 
     constructor () {
+        this.freqTable = [];
         this.root = new TrieNode (null, false);
         let companiesArr: string[][] = normalizeReadFile('companies.dat');
         this.createTrie(companiesArr);
@@ -116,6 +118,7 @@ class Article {
     constructor () {
         let flag = true;
         this.text = [];
+        this.matchMap = [];
         while(flag) {
             let tempText = readline.question('Please input the article: ');
             if (!this.isEnd(tempText)) {

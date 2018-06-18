@@ -1,8 +1,8 @@
 "use strict";
 exports.__esModule = true;
 var fs = require("fs");
-var readpath = 'infile.dat';
-var writepath = 'outfile.dat';
+var promptSync = require("prompt-sync");
+var prompt = promptSync();
 //the node class to store each character and its properties
 var Nodee = /** @class */ (function () {
     function Nodee(char) {
@@ -114,7 +114,15 @@ function countFreq(charArr) {
 }
 //the main funciton do the reading file, manipulating data and writing file work
 function main() {
-    var text = fs.readFileSync(readpath).toString();
+    var readFile = prompt('Please input the file name to read, default name: \'infile.dat\':');
+    var outFile = prompt('Please input the file name to output, default name: \'outfile.dat\':');
+    if (!readFile) {
+        readFile = __dirname + '/infile.dat';
+    }
+    if (!outFile) {
+        outFile = __dirname + '/outfile.dat';
+    }
+    var text = fs.readFileSync(readFile).toString();
     var charNodes = countFreq(text);
     var huffmanTree = new HuffmanTree(charNodes);
     var leaves = huffmanTree.leaves();
@@ -128,7 +136,7 @@ function main() {
         outputData = outputData + '  ' + leaves[i].value + ',    ' + leaves[i].huffmanCode + '\n';
     }
     outputData = outputData + 'The total bits: ' + huffmanTree.totalBits.toString();
-    fs.writeFile(writepath, outputData, function (err) {
+    fs.writeFile(outFile, outputData, function (err) {
         if (err) {
             return console.error(err);
         }

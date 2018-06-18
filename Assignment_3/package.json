@@ -1,7 +1,7 @@
 {
   "name": "assignment_3",
   "version": "1.0.0",
-  "description": "assignmen 3",
+  "description": "assignment 3",
   "main": "Assignment_3.js",
   "scripts": {
     "start": "tsc Assignment_3.ts && node Assignment_3.js",
@@ -10,6 +10,7 @@
   "author": "Bo Li",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^8.0.46"
+    "@types/node": "^8.0.46",
+    "prompt-sync": "^4.1.6"
   }
 }

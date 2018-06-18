@@ -2,7 +2,7 @@
 exports.__esModule = true;
 var fs = require("fs");
 var promptSync = require("prompt-sync");
-var prompt = promptSync();
+var prompt = promptSync({});
 //create the node class
 var Nodee = /** @class */ (function () {
     function Nodee(value) {
@@ -73,7 +73,7 @@ var BinarySearchTree = /** @class */ (function () {
     };
     return BinarySearchTree;
 }());
-var arrS = fs.readFileSync('infile.dat').toString().split(","); //get the input from file and parse by ,
+var arrS = fs.readFileSync('infile.dat').toString().split(","); //get the input from file and parse by ","
 var arr = new Array;
 var bst = new BinarySearchTree;
 //create the binary search tree and insert all the numbers to it

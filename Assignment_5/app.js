@@ -349,6 +349,7 @@ function startUpRouter(routers, input) {
     router.resume();
 }
 function findrouterbyname(routers, name) {
+    // console.log(routers,name);
     for (var _i = 0, routers_5 = routers; _i < routers_5.length; _i++) {
         var each = routers_5[_i];
         if (each.networkName == name) {

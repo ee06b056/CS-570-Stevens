@@ -1,0 +1,17 @@
+{
+  "name": "assignment_5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^8.0.54",
+    "@types/prompt-sync": "^4.1.0",
+    "prompt-sync": "^4.1.5"
+  }
+}

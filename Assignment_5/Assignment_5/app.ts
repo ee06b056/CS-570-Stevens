@@ -359,7 +359,6 @@ function startUpRouter (routers: Router[], input: string): void {
 }
 
 function findrouterbyname (routers: Router[], name: string) : Router {
-    // console.log(routers,name);
     for (let each of routers) {
         if (each.networkName == name) {
             return each;

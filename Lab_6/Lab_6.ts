@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as promptSync from 'prompt-sync';
-let prompt = promptSync();
+let prompt = promptSync({});
 
 //create the node class
 class Nodee {

@@ -33,12 +33,14 @@ var TrieNode = /** @class */ (function () {
         this.prewords = '';
         this.value = value;
         this.isWordEnd = isWordEnd;
+        this.primaryIndex = 0;
     }
     return TrieNode;
 }());
 //trie class
 var Trie = /** @class */ (function () {
     function Trie() {
+        this.freqTable = [];
         this.root = new TrieNode(null, false);
         var companiesArr = normalizeReadFile('companies.dat');
         this.createTrie(companiesArr);
@@ -110,6 +112,7 @@ var Article = /** @class */ (function () {
     function Article() {
         var flag = true;
         this.text = [];
+        this.matchMap = [];
         while (flag) {
             var tempText = readline.question('Please input the article: ');
             if (!this.isEnd(tempText)) {

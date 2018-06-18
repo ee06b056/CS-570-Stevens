@@ -1,6 +1,6 @@
 'use strict'
 import * as promptSync from 'prompt-sync';
-let prompt = promptSync({});
+let prompt = promptSync();
 
 let isContinue = true;
 

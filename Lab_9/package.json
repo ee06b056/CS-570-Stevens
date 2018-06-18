@@ -1,15 +1,15 @@
 {
-  "name": "lab_9",
+  "name": "topological_sort_lab",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "TS_Lab.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc Lab_9.ts --target es6 && node Lab_9.js"
+    "start": "tsc TS_Lab.ts --target es6 && node TS_Lab.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^8.0.50"
   }

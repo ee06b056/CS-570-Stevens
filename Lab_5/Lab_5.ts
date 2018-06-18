@@ -4,16 +4,16 @@ let isContinue: boolean = true;
 
 class Node{
     public value: string;
-    public next: Node;
+    public next: Node | null;
 
-    constructor(value) {
+    constructor(value:string) {
         this.value = value;
         this.next =null;
     }
 }
 
 class CirLinkedList {
-    public head: Node = null;
+    public head: Node | null = null;
     private inputCount: number = 0;
 
     constructor(){};

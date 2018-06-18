@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
-var prompt = require('prompt-sync')();
-//Maxheap class
+var promptSync = require("prompt-sync");
+var prompt = promptSync(null);
 var MaxHeap = /** @class */ (function () {
     function MaxHeap() {
         this.array = new Array;
@@ -11,7 +11,6 @@ var MaxHeap = /** @class */ (function () {
         this.array[i] = this.array[j];
         this.array[j] = temp;
     };
-    //make sure the heap is always maxheap
     MaxHeap.prototype.maxHeaplize = function (index) {
         if (index > Math.floor((this.array.length - 2) / 2))
             return;
@@ -26,14 +25,12 @@ var MaxHeap = /** @class */ (function () {
         this.maxHeaplize(leftChild);
         this.maxHeaplize(rigthChild);
     };
-    //create the maxheap
     MaxHeap.prototype.createMaxHeap = function () {
         var lastIndex = Math.floor((this.array.length - 2) / 2);
         for (var i = lastIndex; i >= 0; i--) {
             this.maxHeaplize(i);
         }
     };
-    //add one number to heap
     MaxHeap.prototype.push = function (num) {
         this.array.push(num);
         var index = this.array.length - 1;
@@ -49,14 +46,12 @@ var MaxHeap = /** @class */ (function () {
             }
         }
     };
-    //delete the root from the heap, outputing the max number
     MaxHeap.prototype.pop = function () {
         this.swap(0, this.array.length - 1);
         var temp = this.array.pop();
         this.createMaxHeap();
         return temp;
     };
-    //output all number in decending order from the heap
     MaxHeap.prototype.output = function () {
         while (this.array.length) {
             console.log(this.pop());
@@ -66,22 +61,17 @@ var MaxHeap = /** @class */ (function () {
 }());
 var maxHeap = new MaxHeap();
 var count = 10;
-try {
-    while (count) {
-        var inputS = prompt('Please input a number ' + (11 - count) + ' of 10: ');
-        var input = parseInt(inputS);
-        if (!isNaN(input)) {
-            maxHeap.push(input);
-            count--;
-        }
-        else {
-            console.log('Input need to be a number!');
-            continue;
-        }
+while (count) {
+    var inputS = prompt('Please input a number ' + (11 - count) + ' of 10: ');
+    var input = parseInt(inputS);
+    if (!isNaN(input)) {
+        maxHeap.push(input);
+        count--;
     }
-    console.log('The decending order of the input is: ');
-    maxHeap.output();
+    else {
+        console.log('Input need to be a number!');
+        continue;
+    }
 }
-catch (err) {
-    console.log(err);
-}
+console.log('The decending order of the input is: ');
+maxHeap.output();

@@ -1,0 +1,15 @@
+{
+  "name": "heapsforsorting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "HeapsForSorting.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bo Li",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^9.6.5",
+    "prompt-sync": "^4.1.6"
+  }
+}

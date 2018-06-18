@@ -1,7 +1,7 @@
 import * as fs from 'fs';
+import * as promptSync from 'prompt-sync';
+const prompt = promptSync();
 
-const readpath = 'infile.dat';
-const writepath = 'outfile.dat';
 //the node class to store each character and its properties
 class Nodee {
     public value: string;
@@ -128,8 +128,17 @@ function countFreq (charArr: string): Nodee[] {
 //the main funciton do the reading file, manipulating data and writing file work
 function main () {
 
-    
-    let text: string = fs.readFileSync(readpath).toString();
+    let readFile = prompt('Please input the file name to read, default name: \'infile.dat\':');
+    let outFile = prompt('Please input the file name to output, default name: \'outfile.dat\':');
+    if (!readFile) {
+        readFile = __dirname + '/infile.dat';
+    }
+    if (!outFile) {
+        outFile = __dirname + '/outfile.dat';
+    }
+
+
+    let text: string = fs.readFileSync(readFile).toString();
     let charNodes: Nodee[] = countFreq(text);
     let huffmanTree = new HuffmanTree(charNodes);
     let leaves = huffmanTree.leaves();
@@ -143,7 +152,7 @@ function main () {
         outputData = outputData + '  ' + leaves[i].value + ',    ' + leaves[i].huffmanCode + '\n';
     }
     outputData = outputData + 'The total bits: ' + huffmanTree.totalBits.toString();
-    fs.writeFile(writepath, outputData, function(err) {
+    fs.writeFile(outFile, outputData, function(err) {
         if (err) {
             return console.error (err);
         }
